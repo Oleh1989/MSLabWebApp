@@ -1,0 +1,64 @@
+﻿@model BookStore.Web.Models.BookViewModel
+@using BookStore.Web.Controllers
+
+@{
+    ViewData["Title"] = "EditBook";
+}
+
+<h1>Update Book Information</h1>
+
+<hr />
+@using (Html.BeginForm(nameof(HomeController.EditBook), nameof(HomeController).Replace("Controller", string.Empty), FormMethod.Post))
+{
+    <div>
+        <hr />
+        <input name="id" type="hidden" value="@Model.Id" />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.EditorFor(model => model.Author)
+                @Html.ValidationMessageFor(model => model.Author)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price)
+            </dd>
+        </dl>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a href="@Url.Action(action: nameof(HomeController.Index), controller: nameof(HomeController).Replace("Controller", string.Empty), null)"><i class="fas fa-undo"></i></a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        var originalNumber = $.validator.methods.number;
+        var wrappedNumber = function (value, element) {
+            var fixedValue = parseFloat(value.toString().replace(",", "."));
+            return originalNumber.call($.validator.prototype, fixedValue, element);     // Call function as if "this" is the original caller
+        };
+        $.validator.methods.number = wrappedNumber;
+    </script>
+}

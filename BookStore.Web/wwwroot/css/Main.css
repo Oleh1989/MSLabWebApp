@@ -1,0 +1,100 @@
+﻿body {
+}
+
+h1 {
+    font-family: 'Ruge Boogie', cursive;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Ruge Boogie', cursive;
+    color: red;
+    font-size: 25pt;
+}
+
+.col-sm-2, .control-label {
+    font-family: 'Ruge Boogie', cursive;
+    font-size: 20pt;
+}
+
+input[type=submit]:hover {
+    background-color: cadetblue;
+}
+
+.library {
+    border: dotted;
+    border-width: 1px;
+}
+
+.book-container {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 50px;
+    border: dotted;
+    border-width: 1px;
+}
+
+    .book-container:hover {
+        background-color: azure;
+        font-weight: bold;
+    }
+
+.download-link {
+    font-size: 8pt;
+    color: black;
+}
+
+    .download-link:hover {
+        font-size: 10pt;
+        color: cadetblue;
+    }
+
+li {
+    transition: 2s;
+}
+
+    li:hover {
+        transition: 2s;
+        background-color: lightblue;
+    }
+
+.main-link {
+    transition: 1s;
+    color: black;
+    font-family: 'Ruge Boogie', cursive;
+    font-size: 25pt;
+}
+
+    .main-link:hover {
+        text-decoration: none;
+        transition: 1s;
+        color: green;
+        font-size: 28pt;
+    }
+
+p {
+    position: static;
+}
+
+.fa-edit {
+    width: 50px;
+    height: 25px;
+}
+
+.fa-info {
+    width: 50px;
+    height: 25px;
+}
+
+.table {
+    margin-top: 50px;
+}
+
+.icons {
+    display: inline-block;
+}
+
+    .icons * {
+        width: 100px;
+        padding: 25px;
+    }
